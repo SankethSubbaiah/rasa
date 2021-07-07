@@ -1,0 +1,251 @@
+version: "2.0"
+
+stories:
+
+- story: bankaccount
+  steps:
+  - intent: Bank_Account
+  - action: utter_Bank_Account
+  - intent: Bank_Balance
+  - action: utter_Bank_Balance
+  - intent: History
+  - action: utter_History
+  - intent: Cheque
+  - action: utter_Cheque
+  - intent: Status
+  - action: utter_Status
+  - intent: Report
+  - action: utter_Report
+
+- story: cheque status
+  steps:
+  - intent: Status
+  - action: utter_Status
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_check_status
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: statement
+  steps:
+  - intent: Statement
+  - action: utter_Statement
+  - intent: AC_Statement
+  - action: utter_AC_Statement
+  - intent: CC_Transaction
+  - action: utter_CC_Transaction
+  - intent: CC_Statement
+  - action: utter_CC_Statement
+  - intent: History
+  - action: utter_History
+
+
+- story: Loans
+  steps:
+  - intent: Loans
+  - action: utter_Loans
+  - intent: All_Loans
+  - action: utter_All_Loans
+
+
+
+- story: fraud
+  steps:
+  - intent: fraud
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_report_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: block
+  steps:
+  - intent: block
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_block_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: debit
+  steps:
+  - intent: Debit
+  - action: utter_Debit
+  - intent: Report
+  - action: utter_Report
+
+- story: debit number
+  steps:
+  - intent: DC_Number
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_debitno
+  - action: utter_response
+
+
+- story: activate
+  steps:
+  - intent: DC_Activate
+  - action: utter_DC_Activate
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+
+
+- story: debit lost
+  steps:
+  - intent: DC_Lost
+  - action: utter_DC_Lost
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: debit block
+  steps:
+  - intent: DC_Block
+  - action: utter_DC_Block
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_block_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: new debit
+  steps:
+  - intent: DC_New
+  - action: utter_DC_New
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+
+- story: debit pin
+  steps:
+  - intent: DC_Pin
+  - action: utter_DC_Pin
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: credit
+  steps:
+  - intent: Credit
+  - action: utter_Credit
+  - intent: CStatement
+  - action: utter_CStatement
+  - intent: CC_Statement
+  - action: utter_CC_Statement
+  - intent: Report
+  - action: utter_Report
+  - action: action_reset_all_slots
+
+- story: credit limit
+  steps:
+  - intent: CC_limit
+  - action: utter_CC_limit
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: credit pin
+  steps:
+  - intent: CC_Pin
+  - action: utter_CC_Pin
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+
+- story: pay credit card bill
+  steps:
+  - intent: PCC_Bill
+  - action: utter_PCC_Bill
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: credit block
+  steps:
+  - intent: CC_Block
+  - action: utter_CC_Block
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_block_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+- story: credit bill
+  steps:
+  - intent: CC_Bill
+  - action: utter_CC_Bill
+  - intent: Start
+  - action: login_form
+  - active_loop: login_form
+  - active_loop: null
+  - action: utter_success
+  - action: utter_reply
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+
+- story: fraudcomplaint
+  steps:
+  - intent: Complaint
+  - action: utter_Complaint
+  - intent: Report
+  - action: utter_Report
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_start
+  - intent: mood_great
+  - action: utter_happy

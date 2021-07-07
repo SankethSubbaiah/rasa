@@ -1,0 +1,428 @@
+version: "2.0"
+
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- Bank_Account
+- Transaction_History
+- Statement
+- Loans
+- Debit
+- Credit
+- InterestRates
+- Complaint
+- Bank_Balance
+- History
+- Cheque
+- Status
+- Report
+- CC_Block
+- CC_limit
+- CC_Pin
+- PCC_Bill
+- CC_Statement
+- CStatement
+- CC_Bill
+- DC_Lost
+- DC_Block
+- DC_Activate
+- DC_New
+- DC_Pin
+- All_Loans
+- AC_Statement
+- CC_Transaction
+- DC_Number
+- Start
+- fraud
+- block
+
+
+
+entities:
+  - emailid
+  - otp
+  - year
+
+slots:
+  emailid:
+    type: text
+  otp:
+    type: text
+  year:
+    type: text
+
+
+forms:
+  login_form:
+      emailid:
+        - type: from_text
+      otp:
+        - type: from_text
+  year_form:
+      year:
+        - type: from_text
+
+actions:
+  - validate_login_form
+  - validate_year_form
+  - action_reset_all_slots
+
+
+
+responses:
+  utter_start:
+  - text: "Hey ,Nice to meet you , Myself B_Bot ?
+            How can I assist you ??"
+    buttons:
+      - title: "Bank Account"
+        payload : "/Bank_Account"
+      - title: "Statement"
+        payload : "/Statement"
+      - title: "Apply for Loan"
+        payload : "/Loans"
+      - title: "Debit/ATM"
+        payload : "/Debit"
+      - title: "Credit Card"
+        payload : "/Credit"
+      - title: "Interest Rates for Loans/Fixed Deposit"
+        payload : "/InterestRates"
+      - title: "Artifice Request/Complaint "
+        payload : "/Complaint"
+
+  utter_Bank_Account:
+  - text: " What would you like to go through"
+    buttons:
+      - title: " Bank Balance "
+        payload: "/Bank_Balance"
+      - title: "Transaction History "
+        payload: "/History"
+      - title: "Apply for new Cheque Book "
+        payload: "/Cheque"
+      - title: "View Cheque Status "
+        payload: "/Status"
+      - title: "Update Personal Details "
+        payload: "/"
+      - title: "Report fraud transaction on account"
+        payload: "/Report"
+
+  utter_ask_emailid:
+    - text: "Enter the Email ID for further verification: "
+
+  utter_ask_otp:
+    - text: "Please enter the  OTP  sent to your Email ID : "
+
+  utter_ask_year:
+    - text: "Enter the year you want to find the interest rate of : "
+
+
+  utter_Bank_Balance:
+  - text: "Authentication is required before proceeding"
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+
+  utter_History:
+  - text: "Authentication is required before proceeding"
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+
+
+  utter_Cheque:
+  - text: "Please login to help you further with  ORDER CHEQUEBOOK request."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+
+  utter_Status:
+  - text: "Please login to help you further with your CHEQUE STATUS request."
+
+
+  utter_Report:
+  - text: "I'm sorry to hear that! What would you like to do?"
+    buttons:
+        - title: "REPORT"
+          payload: "/fraud"
+        - title: "BLOCK"
+          payload: "/block"
+
+  utter_response:
+  - text: "What would you like to proceed with ?"
+    buttons:
+      - title: "REPORT"
+        payload: "/fraud"
+      - title: "BLOCK"
+        payload: "/block"
+
+  utter_Statement:
+  - text: "What would you like to go through"
+    buttons:
+      - title: "Download Credit Card Statement "
+        payload: "/CC_Statement"
+      - title: "Credit Card Transactions"
+        payload: "/CC_Transaction"
+      - title: "My Account Statement "
+        payload: "/AC_Statement"
+      - title: "Bank Account Transactions"
+        payload: "/History"
+
+  utter_CC_Statement:
+  - text: "Choose the method that works best for you:
+          1. Login to Net Banking
+          1) Go to Card-> Credit card
+          2) Statement
+
+          2. On Mobile Banking (View only)
+          1) Go to Credit card
+          2) CC Statements
+
+          3. By clicking here to view your current and last month Credit card statement
+
+          Click here to know the various options to make Kotak credit card payment."
+
+
+  utter_CC_Transaction:
+  - text: "Authentication is required before proceeding"
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+  utter_AC_Statement:
+  - text: "You can quickly View/Download your account statement from:
+          1. Mobile Banking
+          1) Go to Banking
+          2) Select eStatement -> Accounts
+
+          2. Net Banking
+          1) Go to Statements
+          2) Account Statements
+
+          If you are looking for by Email or Physical statement, please follow below ways:
+          1. On Mobile Banking
+          1) Go to Banking
+          2) Account Statement -> select Post or Email
+
+          2. On Net Banking
+          1) Go to Service Requests
+          2) Accounts -> Account Statements
+          (use 'Advanced filters' for account statement more than 92 days).
+
+          3. By clicking here (by email only).
+
+          Please Note:
+          1. Email Statements are free of cost and for physical statement click here and select your account type to know the charges applicable (if any).
+
+          2. Email statement will be delivered within 24 hours and physical statement delivery may take up to 8 working days."
+
+
+
+
+
+  utter_Loans:
+  - text: " Which loan would like to avail"
+    buttons:
+      - title: "Home Loan "
+        payload: "/All_Loans"
+      - title: "Pension Loan"
+        payload: "/All_Loans"
+      - title: "Educational Loan "
+        payload: "/All_Loans"
+      - title: "Auto Loan "
+        payload: "/All_Loans"
+      - title: "Personal Loan "
+        payload: "/All_Loans"
+      - title: "Gold Loan "
+        payload: "/All_Loans"
+
+  utter_All_Loans:
+  - text: "Applying for a loan from Kotak is simple. To apply for a home loan, please follow the below steps:
+
+            1) On Mobile Banking
+                1. Go to Loans
+                2. Choose Options
+                3. Apply Now
+
+            2) On Net Banking
+                1. Go to Loans
+                2. Choose Options
+                3. Fill the details and Apply
+
+            Or
+            Click here to apply for the same.
+            Just fill out your personal details in the form that appears after clicking.
+
+            You can also get a quick home loan sanction within 24 hours by clicking here Kotak offers in principle approval of your home loan through a paperless process by using your income tax credentials.
+
+            Please Note:
+            The time line for the same is 7 working days, subject to approval."
+
+
+  utter_Debit:
+  - text: "What would you like to know?"
+    buttons:
+      - title: "What is my debit card number "
+        payload : "/DC_Number"
+      - title: "Forgot/reset debit card pin"
+        payload : "/DC_Pin"
+      - title: "Apply for new debit card "
+        payload : "/DC_New"
+      - title: "Activate debit card "
+        payload : "/DC_Activate"
+      - title: "Block debit card temporarily "
+        payload : "/DC_Block"
+      - title: "Report debit card fraud transaction "
+        payload : "/Report"
+      - title: "Lost my debit card"
+        payload : "/DC_Lost"
+
+
+  utter_DC_Pin:
+  - text: "Please login to help you further with your DEBIT CARD PIN REGENERATION request."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+
+  utter_DC_New:
+  - text: "Please login to help you further to raise for a NEW DEBIT CARD request."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+  utter_DC_Activate:
+  - text: "Please login to help you further with your ACTIVATE DEBIT CARD request."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+  utter_DC_Block:
+  - text: "Please login to help you further with your BLOCK DEBIT CARD request."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+
+  utter_DC_Lost:
+  - text: "Please login to help you further with your BLOCK DEBIT CARD request."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+  utter_Credit:
+  - text: "Hey ,Nice to meet you , Myself B_Bot ?
+            How can I assist you ??"
+    buttons:
+      - title: "View my credit card bill "
+        payload : "/CC_Bill"
+      - title: "Credit card statement due date "
+        payload : "/CStatement"
+      - title: "Check credit card statement "
+        payload : "/CC_Statement"
+      - title: "Pay credit card bill"
+        payload : "/PCC_Bill"
+      - title: "Forgot/reset credit card pin "
+        payload : "/CC_Pin"
+      - title: "My credit card limit "
+        payload : "/CC_limit"
+      - title: "Block credit card temporarily"
+        payload : "/CC_Block"
+
+  utter_CC_Bill:
+  - text: "Please login to help you with your CREDIT CARD ENQUIRY."
+    buttons:
+      - title: "LOGIN"
+        payload: "/Start"
+
+  utter_CStatement:
+  - text: "You can check your Credit Card bill due date in the following ways:
+  1. On Mobile Banking:
+  a) Go to Credit Card -> CC A/c summary
+  b) Total Amount Due as of last statement
+
+  2. On Net Banking:
+  a) Go to Cards-> Credit Card -> Account summary
+  b) Total Amount Due as of last statement"
+
+
+  utter_PCC_Bill:
+  - text: "Please login to help you further with your CREDIT CARD BILL PAYMENT request."
+    buttons:
+      - title: "LOGIN NOW"
+        payload: "/Start"
+
+  utter_CC_Pin:
+  - text: "Please login to help you further with your CREDIT CARD PIN REGENERATION request."
+    buttons:
+      - title: "LOGIN NOW"
+        payload: "/Start"
+
+  utter_CC_limit:
+  - text: "Please login to help you with your CREDIT CARD ENQUIRY."
+    buttons:
+      - title: "LOGIN NOW"
+        payload: "/Start"
+
+  utter_CC_Block:
+  - text: "Please login to help you further with your BLOCK CREDIT CARD request."
+    buttons:
+      - title: "LOGIN NOW"
+        payload: "/Start"
+
+
+
+  utter_Complaint:
+  - text: " You can Raise reports regarding"
+    buttons:
+      - title: "Report fraud transaction on account "
+        payload: "/Report"
+      - title: "Report fraud transaction on debit card"
+        payload: "/Report"
+      - title: "Report fraud transaction on credit card"
+        payload: "/Report"
+  utter_greet:
+  - text: "Hey ,How are you doing"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a B_bot, powered by Rasa."
+
+  utter_success:
+    - text: "Authentication Completed!!!"
+  utter_debitno:
+    - text: " Your Debit Card Number is 3421-3456-9899-0023 "
+  utter_thanks:
+    - text: " Do want to know anything else ??"
+
+  utter_reply:
+    - text: " A link along with further procedures has been sent to your Email ID:
+              Follow them Accordingly"
+  utter_check_status:
+    - text: "Your cheque verification process is in progress"
+  utter_block_reply:
+    - text: " Your card has been blocked temporarily."
+
+  utter_report_reply:
+    - text: " The complaint has been raised to the higher authorities, your complaint will be resolved as soon as possible"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

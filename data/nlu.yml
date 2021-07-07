@@ -1,0 +1,269 @@
+version: "2.0"
+
+nlu:
+
+- intent: Bank_Account
+  examples: |
+    - bank account details
+    - bank details
+    - details
+    - bank info
+    - bank account info
+    - accout info
+    - acc info
+    - bnk info
+    - details bank
+    - accont details bank
+- intent: Statement
+  examples: |
+    - bank statements
+    - mini statements
+    - statements
+    - stat bank details
+    - bank account statements
+    - statements of bank
+    - statemnts bank
+    - bank stats
+    - mini status
+    - statements related to bank
+- intent: Loans
+  examples: |
+    - Loans
+    - Home Loan
+    - Personal Loan
+    - any loans
+    - different loans
+    - other loans
+    - variety of loan
+    - loan procedures
+    - documents for loans
+    - interest loans
+
+- intent: Debit
+  examples: |
+    - Debit card details
+    - ATM card details
+    - details debit card
+    - ATM card
+    - debit card
+    - debt card
+    - atm details
+    - atm
+    - debit
+
+- intent: Credit
+  examples: |
+    - Credit card details
+    - credit card
+    - details of credit card
+    - credit
+    - credit facilities
+    - credit card facilities
+    - cc details
+    - cc
+    - cc facilities
+    - know more about credit card
+
+
+- intent: InterestRates
+  examples: |
+    - different interest rates of [fixed deposit][loans](IRnames)
+    - interest rates of [fixed deposit](IRnames)
+    - interest rates of [loans](IRnames)
+    - find interest rates of [loans](IRnames)
+    - find interest rates of [fixed deposit](IRnames)
+    - interest rate
+    - rates
+    - intrst rat
+    - rte interest
+    - diffrnt interest rate
+
+- intent: DC_Number
+  examples: |
+    - My Debit card number
+    - digit of Debit Card
+    - what is my debit card number
+    - ATM card number
+    - what is my ATM card number
+    - My ATM card number
+    - number
+    - debit number
+    - number debit card
+    - atm number
+
+
+- intent: All_Loans
+  examples: |
+    - Gold Loan
+    - Personal Loan
+    - Educational Loan
+- intent: AC_Statement
+  examples: |
+    - Account Statement
+    - Bank Statement
+    - Mini Statemen
+- intent: CC_Transaction
+  examples: |
+    - Credit Card Transaction History
+    - Credit History
+
+
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - good bye
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+
+
+
+
+
+
+
+
+- intent: Complaint
+  examples: |
+    - raise complaint
+    - raise issue
+    - complaint
+    - issue
+    - problems
+
+- intent: Bank_Balance
+  examples: |
+    - check balance
+    - balance
+- intent: History
+  examples: |
+    - transaction history
+    - history
+- intent: Cheque
+  examples: |
+    - new checkbook
+    - checkbook
+- intent: Status
+  examples: |
+    - bank status
+    - cheque status
+- intent: Report
+  examples: |
+    - Raise fraud complaint
+    - Debit Card fraud complaint
+    - Credit Card fraud complaint
+
+
+- intent: CC_Block
+  examples: |
+    - Block Credit Card
+    - Blocked Credit Card
+- intent: CC_limit
+  examples: |
+    - Credit Card Limit
+    - Limit check
+- intent: CC_Pin
+  examples: |
+    - Forgot Credit Card Pin
+    - New Credit Card Pin
+- intent: PCC_Bill
+  examples: |
+    - Pay Credit Card Bill
+    - Payment bill
+- intent: CC_Statement
+  examples: |
+    - Credit Card due date
+    - Last date for credit card payment
+- intent: CStatement
+  examples: |
+    - Credit Statement
+    - statement check
+- intent: CC_Bill
+  examples: |
+    - Pay Bill
+    - payment
+- intent: CC_Block
+  examples: |
+    - Block Credit Card
+    - Credit Card Block
+- intent: DC_Lost
+  examples: |
+    - Lost Debit Card
+    - Debit Card recovery
+- intent: DC_Block
+  examples: |
+    - Debit Card Block
+    - Debit card stolen
+
+- intent: DC_Activate
+  examples: |
+    - Debit Card Activate
+    - Activation of Debit Card
+- intent: DC_New
+  examples: |
+    - Apply for Debit Card
+    - New Debit Card
+- intent: DC_Pin
+  examples: |
+    - Change Debit Card Pin
+    - Forgot Debit Card Pin
+

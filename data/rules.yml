@@ -1,0 +1,72 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say 'Bank Account Details' anytime user says Bank Account
+  steps:
+  - intent: Bank_Account
+  - action: utter_Bank_Account
+
+- rule: Say 'Bank Statement' anytime user says Statement
+  steps:
+  - intent: Statement
+  - action: utter_Statement
+
+- rule: Say 'Loan Details' anytime user says Bank Account
+  steps:
+  - intent: Loans
+  - action: utter_Loans
+
+
+
+- rule: activate year form
+  steps:
+  - intent: InterestRates
+  - action: year_form
+  - active_loop: year_form
+
+- rule: submit year form
+  condition:
+  - active_loop: year_form
+  steps:
+  - action: year_form
+  - active_loop: null
+  - action: utter_thanks
+  - action: action_reset_all_slots
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
